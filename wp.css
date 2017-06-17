@@ -1,0 +1,7 @@
+.header {
+  display: flex;
+}
+
+.header .header--utils {
+  justify-content: flex-end;
+}
