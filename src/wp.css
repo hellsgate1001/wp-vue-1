@@ -5,3 +5,27 @@
 .header .header--utils {
   justify-content: flex-end;
 }
+
+.header--utils--login {
+  align-self: flex-end;
+}
+
+.wp-icon {
+  /*background: url('/wp-icons.svg') no-repeat;*/
+  background-size: cover;
+  font-size: 0;
+  padding: 0;
+}
+
+.wp-icon-add {
+  background-image: url('/add.svg');
+  height: 24px;
+  width: 24px;
+}
+
+.wp-icon-edit {
+  mask-image: url('/edit.svg');
+  background-color: #300;
+  height: 18px;
+  width: 18px;
+}
