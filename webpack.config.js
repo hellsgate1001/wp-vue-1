@@ -1,7 +1,13 @@
+const path = require('path');
+
+const APP = path.resolve(__dirname, './src');
+
 module.exports = {
-  entry: './src/main',
+  context: APP,
+  entry: './main',
   output: {
-    filename: 'bundle.js'
+    path: APP,
+    filename: './bundle.js'
   },
   module: {
     loaders: [
@@ -14,5 +20,10 @@ module.exports = {
         }
       }
     ]
+  },
+  resolve: {
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
   }
 }
