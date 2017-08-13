@@ -9,12 +9,18 @@ module.exports = {
     path: APP,
     filename: './bundle.js'
   },
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './src',
+    host: '0.0.0.0',
+    public: '192.168.2.141:8080'
+  },
   module: {
     loaders: [
       {
-        test: '/\.js$/',
+        test: /\.js$/,
         exclude: '/node_modules',
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['es2015']
         }

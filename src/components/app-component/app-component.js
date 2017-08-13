@@ -1,7 +1,11 @@
 import Vue from 'vue';
+import TagComponent from '../tag-component/tag-component';
 
 const AppComponent = Vue.extend({
-  template: '<h1>Hello World!</h1>'
+  template: require('html-loader!./app-component.template.html'),
+  components: {
+    'tag-component': TagComponent
+  }
 });
 
 export default AppComponent;
