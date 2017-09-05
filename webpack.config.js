@@ -13,7 +13,7 @@ module.exports = {
   devServer: {
     contentBase: './src',
     host: '0.0.0.0',
-    public: '192.168.2.141:8080'
+    public: '192.168.1.20:8080'
   },
   module: {
     loaders: [
