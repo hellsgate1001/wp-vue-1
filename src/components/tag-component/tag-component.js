@@ -1,48 +1,26 @@
 import Vue from 'vue';
 import TagListComponent from './tag-list-component/tag-list-component';
 
+const template = require('./tag-component.template.html');
+
 const TagComponent = Vue.extend({
-  template: require('html-loader!./tag-component.template.html'),
+  template,
   components: {
-    'tag-list': TagListComponent
+    'tag-list': TagListComponent,
   },
   data() {
     return {
       myMessage: 'Hello tags!',
-      tags: [
-        {
-          id: 1,
-          name: 'Tag Number 1',
-          size: 2
-        },
-        {
-          id: 2,
-          name: 'Tag Number 2',
-          size: 2
-        },
-        {
-          id: 3,
-          name: 'Tag Number 3',
-          size: 2
-        },
-        {
-          id: 4,
-          name: 'Tag Number 4',
-          size: 2
-        },
-        {
-          id: 5,
-          name: 'Tag Number 5',
-          size: 2
-        },
-        {
-          id: 6,
-          name: 'Tag Number 6',
-          size: 2
-        }
-      ]
-    }
-  }
+      tags: [],
+    };
+  },
+  created() {
+    this.$http.get('http://api.waypoints.briansdojo.co.uk/api/tags/tags/').then((tagResponse) => {
+      // eslint-disable-next-line
+      console.log('Remote tags:', tagResponse);
+      this.tags = tagResponse.body;
+    });
+  },
 });
 
 export default TagComponent;

@@ -1,7 +1,35 @@
 <div id="app-c">
-  <h1>In the template</h1>
+  <header class="container">
+    <div class="row header">
+      <div class="col s12 m8">
+        <img src="WaypointsLogo.png" alt="Logo" />
+      </div>
+      <div class="col s12 m4 valign-wrapper header--utils">
+        <div class="header--utils--login">
+          <a href="#" class="chip teal lighten-1 white-text">Login</a>
+        </div>
+      </div>
+    </div>
+  </header>
 
-  <div id="tags">
-    <tag-component></tag-component>
+  <div class="container">
+    <div class="divider teal lighten-1"></div>
+
+    <div class="row section">
+      <div id="sidebar" class="col s12 m3">
+        <div class="row">
+          <div class="col s12">
+            <input type="text" id="tagFilter" name="tagFilter" placeholder="Filter Tags..." />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col s12" id="tagList">
+            <tag-component></tag-component>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+
 </div>

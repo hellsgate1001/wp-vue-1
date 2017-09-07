@@ -1,7 +1,10 @@
 import Vue from 'vue';
 
+const template = require('./tag-list-component.template.html');
+
 const TagListComponent = Vue.component('tag-list', {
-  template: require('html-loader!./tag-list-component.template.html')
+  template,
+  props: ['tag'],
 });
 
 export default TagListComponent;

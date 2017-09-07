@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+
+  .header--utils {
+    justify-content: flex-end;
+  }
+
+  .header--utils--login {
+    align-self: flex-end;
+  }
+}
