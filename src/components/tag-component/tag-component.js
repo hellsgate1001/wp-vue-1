@@ -11,19 +11,21 @@ const TagComponent = Vue.extend({
   data() {
     return {
       myMessage: 'Hello tags!',
-      tags: [],
       tagFilter: '',
     };
   },
   created() {
     this.$http.get('http://api.waypoints.briansdojo.co.uk/api/tags/tags/').then((tagResponse) => {
-      this.tags = tagResponse.body;
+      this.$store.commit('updateTags', tagResponse.body);
     });
   },
   computed: {
     filteredTags() {
       // eslint-disable-next-line max-len
       return this.tags.filter(tag => tag.name.toLowerCase().indexOf(this.tagFilter.toLowerCase()) > -1);
+    },
+    tags() {
+      return this.$store.state.tags;
     },
   },
 });

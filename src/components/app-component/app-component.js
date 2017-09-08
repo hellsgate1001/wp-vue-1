@@ -11,11 +11,21 @@ const template = require('./app-component.template.html');
 const store = new Vuex.Store({
   state: {
     waypointFilter: '',
+    tags: [],
+    waypoints: [],
   },
   mutations: {
+    updateTags(state, newTags) {
+      // eslint-disable-next-line no-param-reassign
+      state.tags = newTags;
+    },
     updateWaypointFilter(state, newFilter) {
       // eslint-disable-next-line no-param-reassign
       state.waypointFilter = newFilter;
+    },
+    updateWaypoints(state, newWaypoints) {
+      // eslint-disable-next-line no-param-reassign
+      state.waypoints = newWaypoints;
     },
   },
 });

@@ -8,19 +8,13 @@ const WaypointsComponent = Vue.extend({
   components: {
     'waypoint-component': WaypointComponent,
   },
-  data() {
-    return {
-      waypoints: [],
-    };
-  },
   created() {
     this.$http.get('http://api.waypoints.briansdojo.co.uk/api/bookmarks/bookmarks/?limit=30&offset=0').then((wpResponse) => {
-      this.waypoints = wpResponse.body.results;
+      this.$store.commit('updateWaypoints', wpResponse.body.results);
     });
   },
   computed: {
     filteredWps() {
-      console.log('FILTER:', this.waypointFilter);
       return this.waypoints.filter((wp) => {
         let found = false;
 
@@ -35,6 +29,9 @@ const WaypointsComponent = Vue.extend({
     },
     waypointFilter() {
       return this.$store.state.waypointFilter;
+    },
+    waypoints() {
+      return this.$store.state.waypoints;
     },
   },
 });
