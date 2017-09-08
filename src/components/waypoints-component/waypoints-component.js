@@ -18,6 +18,25 @@ const WaypointsComponent = Vue.extend({
       this.waypoints = wpResponse.body.results;
     });
   },
+  computed: {
+    filteredWps() {
+      console.log('FILTER:', this.waypointFilter);
+      return this.waypoints.filter((wp) => {
+        let found = false;
+
+        wp.tags.forEach((tag) => {
+          if (tag.name.toLowerCase().indexOf(this.waypointFilter.toLowerCase()) > -1) {
+            found = true;
+          }
+        });
+
+        return found;
+      });
+    },
+    waypointFilter() {
+      return this.$store.state.waypointFilter;
+    },
+  },
 });
 
 export default WaypointsComponent;

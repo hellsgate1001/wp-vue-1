@@ -1,0 +1,12 @@
+.waypoint-component {
+  .card-title {
+    padding-right: 38px;
+    position: relative;
+
+    .card-title__edit {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+}
