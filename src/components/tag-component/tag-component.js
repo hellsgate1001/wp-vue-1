@@ -12,14 +12,19 @@ const TagComponent = Vue.extend({
     return {
       myMessage: 'Hello tags!',
       tags: [],
+      tagFilter: '',
     };
   },
   created() {
     this.$http.get('http://api.waypoints.briansdojo.co.uk/api/tags/tags/').then((tagResponse) => {
-      // eslint-disable-next-line
-      console.log('Remote tags:', tagResponse);
       this.tags = tagResponse.body;
     });
+  },
+  computed: {
+    filteredTags() {
+      // eslint-disable-next-line max-len
+      return this.tags.filter(tag => tag.name.toLowerCase().indexOf(this.tagFilter.toLowerCase()) > -1);
+    },
   },
 });
 

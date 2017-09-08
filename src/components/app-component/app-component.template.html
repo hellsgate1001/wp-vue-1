@@ -17,17 +17,11 @@
 
     <div class="row section">
       <div id="sidebar" class="col s12 m3">
-        <div class="row">
-          <div class="col s12">
-            <input type="text" id="tagFilter" name="tagFilter" placeholder="Filter Tags..." />
-          </div>
-        </div>
+        <tag-component></tag-component>
+      </div>
 
-        <div class="row">
-          <div class="col s12" id="tagList">
-            <tag-component></tag-component>
-          </div>
-        </div>
+      <div id="content" class="col s12 m9">
+        <waypoints-component></waypoints-component>
       </div>
     </div>
   </div>
