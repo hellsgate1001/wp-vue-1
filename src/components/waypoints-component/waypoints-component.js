@@ -44,8 +44,10 @@ const WaypointsComponent = Vue.extend({
     loadWaypoints() {
       this.$http.get(`http://api.waypoints.briansdojo.co.uk/api/bookmarks/bookmarks/?limit=30&offset=${this.offset}`).then((wpResponse) => {
         this.$store.commit('updateWaypoints', wpResponse.body.results);
-        this.offset += this.limit;
-        setTimeout(this.loadWaypoints, 500);
+        if (wpResponse.body.results.length > 0) {
+          this.offset += this.limit;
+          setTimeout(this.loadWaypoints, 500);
+        }
       });
     },
   },
