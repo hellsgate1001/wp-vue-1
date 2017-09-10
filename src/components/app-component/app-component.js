@@ -25,7 +25,7 @@ const store = new Vuex.Store({
     },
     updateWaypoints(state, newWaypoints) {
       // eslint-disable-next-line no-param-reassign
-      state.waypoints = newWaypoints;
+      state.waypoints = state.waypoints.concat(newWaypoints);
     },
   },
 });

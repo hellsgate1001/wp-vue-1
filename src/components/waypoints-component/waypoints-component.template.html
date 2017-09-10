@@ -1,5 +1,8 @@
 <div>
   <div class="row">
-    <waypoint-component v-for="wp in filteredWps" :key="wp.id" :wp="wp"></waypoint-component>
+    <div class="col s12 waypoints--loading" v-if="filteredWps.length === 0">
+      <loading-component message="Fetching Waypoints..."></loading-component>
+    </div>
+    <waypoint-component v-for="wp in filteredWps" :key="wp.id" :wp="wp" v-if="filteredWps.length > 0"></waypoint-component>
   </div>
 </div>

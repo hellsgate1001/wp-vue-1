@@ -7,7 +7,10 @@
 
   <div class="row">
     <div class="col s12" id="tagList">
-      <div class="collection">
+      <div class="waypoints--loading" v-if="filteredTags.length === 0">
+        <loading-component message="Fetching Tags..."></loading-component>
+      </div>
+      <div class="collection" v-if="filteredTags.length > 0">
         <tag-list v-for="tag in filteredTags" :key="tag.id" :tag="tag"></tag-list>
       </div>
     </div>

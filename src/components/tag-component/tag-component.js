@@ -1,12 +1,16 @@
 import Vue from 'vue';
 import TagListComponent from './tag-list-component/tag-list-component';
+import LoadingComponent from '../loading-component/loading-component';
 
 const template = require('./tag-component.template.html');
+
+require('./tag-component.scss');
 
 const TagComponent = Vue.extend({
   template,
   components: {
     'tag-list': TagListComponent,
+    'loading-component': LoadingComponent,
   },
   data() {
     return {
