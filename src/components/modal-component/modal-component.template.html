@@ -1,0 +1,29 @@
+<transition name="modal">
+  <div class="modal-mask">
+    <div class="modal-wrapper">
+      <div class="modal-container">
+
+        <div class="modal-header">
+          <slot name="header">
+            {{ modalContent.header }}
+          </slot>
+        </div>
+
+        <div class="modal-body">
+          <slot name="body">
+            {{ modalContent.content }}
+          </slot>
+        </div>
+
+        <div class="modal-footer">
+          <slot name="footer">
+            {{ modalContent.footer }}
+            <button class="modal-default-button" @click="$emit('close')">
+              OK
+            </button>
+          </slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>

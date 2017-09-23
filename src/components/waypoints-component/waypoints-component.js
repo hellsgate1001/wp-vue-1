@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import WaypointComponent from './waypoint-component/waypoint-component';
+import WaypointEditComponent from './waypoint-edit-component/waypoint-edit-component';
 import LoadingComponent from '../loading-component/loading-component';
 
 const template = require('./waypoints-component.template.html');
@@ -9,6 +10,7 @@ const WaypointsComponent = Vue.extend({
   components: {
     'waypoint-component': WaypointComponent,
     'loading-component': LoadingComponent,
+    'waypoint-edit-component': WaypointEditComponent,
   },
   created() {
     this.loadWaypoints();
@@ -26,6 +28,9 @@ const WaypointsComponent = Vue.extend({
 
         return found;
       });
+    },
+    showModal() {
+      return this.$store.state.showModal;
     },
     waypointFilter() {
       return this.$store.state.waypointFilter;
@@ -49,6 +54,9 @@ const WaypointsComponent = Vue.extend({
           setTimeout(this.loadWaypoints, 500);
         }
       });
+    },
+    displayModal() {
+      this.$store.state.showModal = true;
     },
   },
 });

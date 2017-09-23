@@ -1,8 +1,15 @@
 <div>
   <div class="row">
+    <a href="#modal1" class="btn" @click="displayModal()">Show Modal</a>
     <div class="col s12 waypoints--loading" v-if="filteredWps.length === 0">
       <loading-component message="Fetching Waypoints..."></loading-component>
     </div>
     <waypoint-component v-for="wp in filteredWps" :key="wp.id" :wp="wp" v-if="filteredWps.length > 0"></waypoint-component>
+    <div id="modal1" class="waypoints-modal modal">
+      <div class="modal-content">
+        <h4>Modal Header</h4>
+        <p>Lorem ipsum dolor sit amet</p>
+      </div>
+    </div>
   </div>
 </div>

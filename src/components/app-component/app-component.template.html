@@ -6,7 +6,7 @@
       </div>
       <div class="col s12 m4 valign-wrapper header--utils">
         <div class="header--utils--login">
-          <a href="#" class="chip teal lighten-1 white-text">Login</a>
+          <a href="#" class="chip teal lighten-1 white-text" @click="displayLoginModal()">Login</a>
         </div>
       </div>
     </div>
@@ -26,4 +26,5 @@
     </div>
   </div>
 
+  <modal-component v-if="showModal" @close="hideModal()"></modal-component>
 </div>
