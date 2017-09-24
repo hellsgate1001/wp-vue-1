@@ -6,9 +6,9 @@ import WaypointsComponent from '../waypoints-component/waypoints-component';
 import ModalComponent from '../modal-component/modal-component';
 import LoginFormComponent from '../login-form/login-form';
 
-Vue.use(Vuex);
-
 const template = require('./app-component.template.html');
+
+Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
@@ -16,13 +16,8 @@ const store = new Vuex.Store({
     tags: [],
     waypoints: [],
     showModal: false,
-    modalContent: {
-      header: 'Modal Header',
-      content: 'Default Content',
-      footer: 'Modal Footer',
-      footerButtons: [],
-    },
     modal: {
+      content: 'Default Content',
       mainClass: '',
     },
     loginForm: {
@@ -40,15 +35,7 @@ const store = new Vuex.Store({
     // Modal
     setModalContent(state, newContent) {
       const newState = state;
-      newState.modalContent.content = newContent;
-    },
-    setModalFooterButtons(state, newButtons) {
-      const newState = state;
-      newState.modalContent.footerButtons = newButtons;
-    },
-    setModalHeader(state, newHeader) {
-      const newState = state;
-      newState.modalContent.header = newHeader;
+      newState.modal.content = newContent;
     },
     setModalMainClass(state, newMainClass) {
       const newState = state;
@@ -99,9 +86,7 @@ const AppComponent = Vue.extend({
   },
   methods: {
     displayLoginModal() {
-      this.$store.commit('setModalHeader', 'Login Modal');
       this.$store.commit('setModalContent', LoginFormComponent);
-      this.$store.commit('setModalFooterButtons', this.$store.state.loginForm.buttons);
       this.$store.commit('setModalMainClass', 'login-modal');
       this.$store.state.showModal = true;
     },

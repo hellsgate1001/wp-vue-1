@@ -16,8 +16,8 @@ const ModalComponent = Vue.extend({
     },
   },
   computed: {
-    modalContent() {
-      return this.$store.state.modalContent;
+    modal() {
+      return this.$store.state.modal;
     },
   },
 });
